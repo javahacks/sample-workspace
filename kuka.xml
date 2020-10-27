@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ASCII"?>
+<robot name="kuka_lwr" version="1.0">  
+  <material name="orange">
+    <color rgba="1.0 0.309 0.0 1.0"/>
+  </material>        
+  <material name="black">
+    <color rgba="0.0 0.0 1.0 1.0"/>
+  </material>     
+  <material name="white-transparent">
+    <color rgba="1.0 1.0 1.0 0.8"/>    
+  </material>
+  <link name="link_name">    
+    <visual name="">
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>           
+    </visual>    
+  </link>    
+  <link name="calib_kuka_arm_base_link">
+    <visual>
+      <origin xyz="0.0 0.0 -0.5"/>
+      <geometry>
+        <mesh filename="meshes/arm_base.stl"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+  </link>
+  
+  <link name="kuka_arm_1_link">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.14159265359"/>
+      <geometry>
+        <mesh filename="meshes/arm_segment_a.stl"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+  </link>
+  <link name="kuka_arm_2_link">
+    <visual>
+      <origin xyz="0.0 0.0 0.2" rpy="3.14159265359 0.0 3.14159265359"/>
+      <geometry>
+        <mesh filename="meshes/arm_segment_b.stl"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+  </link>
+  <link name="kuka_arm_3_link">
+    <visual>
+      <geometry>
+        <mesh filename="meshes/arm_segment_a.stl"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+  </link>
+  <link name="kuka_arm_4_link">
+    <visual>
+      <origin xyz="0.0 0.0 0.2" rpy="0.0 3.14159265359 3.14159265359"/>
+      <geometry>
+        <mesh filename="meshes/arm_segment_b.stl"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+  </link>
+  <link name="kuka_arm_5_link">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.14159265359"/>
+      <geometry>
+        <mesh filename="meshes/arm_segment_last.stl"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+  </link>
+  <link name="kuka_arm_6_link">    
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.14159265359"/>
+      <geometry>
+        <mesh filename="meshes/arm_wrist.stl"/>
+      </geometry>
+      <material name="white-transparent"/>
+    </visual>
+  </link>
+  <link name="kuka_arm_7_link">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.14159265359"/>
+      <geometry>
+        <mesh filename="meshes/arm_flanche.stl"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+  <joint name="base_joint" type="continuous">
+    <origin xyz="0.0 0.0 0.11" rpy="0.0 0.0 0.0"/>
+    <parent link="calib_kuka_arm_base_link"/>
+    <child link="kuka_arm_1_link"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+  <joint name="joint-1" type="revolute">
+    <origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0"/>
+    <parent link="kuka_arm_1_link"/>
+    <child link="kuka_arm_2_link"/>
+    <axis xyz="0.0 -1.0 0.0"/>
+    <limit lower="-1.57079632679" upper="1.57079632679"/>
+  </joint>
+  <joint name="joint-2" type="revolute">
+    <origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0"/>
+    <parent link="kuka_arm_2_link"/>
+    <child link="kuka_arm_3_link"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-2.96705972839" upper="2.96705972839"/>
+  </joint>
+  <joint name="joint-3" type="revolute">
+    <origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0"/>
+    <parent link="kuka_arm_3_link"/>
+    <child link="kuka_arm_4_link"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <limit lower="-2.09439510239" upper="2.09439510239"/>
+  </joint>
+  <joint name="joint-4" type="revolute">
+    <origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0"/>
+    <parent link="kuka_arm_4_link"/>
+    <child link="kuka_arm_5_link"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-2.96705972839" upper="2.96705972839"/>
+  </joint>
+  <joint name="joint-5" type="revolute">
+    <origin xyz="0.0 0.0 0.19" rpy="0.0 0.0 0.0"/>
+    <parent link="kuka_arm_5_link"/>
+    <child link="kuka_arm_6_link"/>
+    <axis xyz="0.0 -1.0 0.0"/>
+    <limit lower="-2.09439510239" upper="2.09439510239"/>
+  </joint>
+  <joint name="joint-6" type="revolute">
+    <origin xyz="0.0 0.0 0.078" rpy="0.0 0.0 0.0"/>
+    <parent link="kuka_arm_6_link"/>
+    <child link="kuka_arm_7_link"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-2.96705972839" upper="2.96705972839"/>
+  </joint>
+  
+</robot>
