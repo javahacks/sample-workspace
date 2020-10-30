@@ -6,7 +6,7 @@
   <material name="white">
     <color rgba="1.0 1.0 1.0 1.0"/>          
   </material>  
-    <material name="black">
+ <material name="black">
     <color rgba="0.0 0.0 0.0 1.0"/>
   </material>        
   <material name="metal">  
