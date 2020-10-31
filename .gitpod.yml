@@ -1,4 +1,4 @@
-image: gitpod/workspace-thin
+image: gitpod/workspace-full
 vscode:
   extensions:
     - javahacks.urdf-viewer@1.0.0:YockGdszEp9CDLAO8pIGiQ==
