@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
+<!--
+   This is a sample of the original URDF file you can find here:
+   https://github.com/bulletphysics/bullet3/tree/master/data/kuka_lwr
+-->
 <robot name="kuka_lwr" version="1.0">  
   <material name="orange">
     <color rgba="1.0 0.309 0.0 1.0"/>
